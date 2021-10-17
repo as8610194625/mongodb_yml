@@ -4,17 +4,19 @@ services:
 
   mongo:
     image: mongo
+    container_name: mongo
     restart: always
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
     ports:
       - 27017:27017
-    volumes:
-      - ./mongod.conf.orig:/etc/mongod.conf.orig
+    # volumes:
+    #   - ./mongod.conf.orig:/etc/mongod.conf.orig
 
   mongo-express:
     image: mongo-express
+    container_name: mongo-express
     restart: always
     ports:
       - 8081:8081
